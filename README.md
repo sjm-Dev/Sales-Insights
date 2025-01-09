@@ -1,15 +1,11 @@
 # Tablero de Ventas - README
 
 ## Resumen
-Este proyecto es un Tablero de Análisis de Ventas creado utilizando Power BI. Proporciona una vista detallada de los datos de ventas de AtliQ Hardware, una empresa ficticia de hardware informático con sede en India. AtliQ Hardware suministra hardware y periféricos de computadoras a numerosos clientes en toda India, y su oficina central se encuentra en Delhi, India.
+Este proyecto es un análisis de ventas realizado en dos etapas principales:
+1. **Consultas SQL**: Extracción y preparación de los datos necesarios para el análisis.
+2. **Dashboard en Power BI**: Visualización interactiva de los resultados para facilitar la toma de decisiones.
 
-El tablero está diseñado para proporcionar perspectivas basadas en datos. Se construyeron indicadores clave de rendimiento (KPIs), como ingresos totales y cantidades vendidas, utilizando fórmulas DAX para realizar cálculos dinámicos que mejoran la toma de decisiones estratégicas.
-
-## Características
-- **KPIs Clave**: Monto total de ingresos y cantidades vendidas.
-- **Top 5 Clientes y Productos**: Identifica los clientes y productos con mejor desempeño.
-- **Ingresos y Cantidad de Ventas por Mercados**: Desglose detallado por regiones para identificar oportunidades y tendencias.
-- **Visualizaciones Dinámicas**: Diseñadas para resaltar patrones y facilitar la toma de decisiones.
+El análisis se centra en los datos de ventas de AtliQ Hardware, una empresa ficticia de hardware informático con sede en India. AtliQ Hardware suministra hardware y periféricos de computadoras a numerosos clientes en toda India, y su oficina central se encuentra en Delhi, India.
 
 ## Problema
 El director de ventas enfrenta dificultades para rastrear el rendimiento del mercado debido a la falta de reportes respaldados por datos concretos. Esto genera una visibilidad limitada sobre los factores clave que afectan las ventas.
@@ -22,6 +18,67 @@ Implementar una solución basada en datos para:
 ## Herramientas Utilizadas
 - **SQL**: Para la extracción, transformación y limpieza de datos.
 - **Power BI**: Para la creación de visualizaciones interactivas.
+
+## Consultas SQL
+A continuación, se detallan las consultas SQL utilizadas para extraer, transformar y analizar los datos:
+
+1. **Selección básica:** Retorna todas las filas y columnas de la tabla `customers`.
+   ```sql
+   SELECT * FROM customers;
+   ```
+
+2. **Conteo total de clientes:** Cuenta el número total de registros en la tabla `customers`.
+   ```sql
+   SELECT COUNT(*) FROM customers;
+   ```
+
+3. **Filtrar transacciones por mercado:** Selecciona todas las filas de la tabla `transactions` donde el código de mercado sea `Mark001`.
+   ```sql
+   SELECT * FROM transactions WHERE market_code = 'Mark001';
+   ```
+
+4. **Valores únicos de productos en un mercado específico:** Obtiene los valores únicos de `product_code` en el mercado `Mark001`.
+   ```sql
+   SELECT DISTINCT product_code FROM transactions WHERE market_code = 'Mark001';
+   ```
+
+5. **Filtrar transacciones por moneda:** Retorna todas las filas de la tabla `transactions` donde la moneda sea `USD`.
+   ```sql
+   SELECT * FROM transactions WHERE currency = "USD";
+   ```
+
+6. **Combinar datos de transacciones y fechas:** Realiza un INNER JOIN entre las tablas `transactions` y `date` para incluir solo transacciones del año 2020.
+   ```sql
+   SELECT transactions.*, date.*
+   FROM transactions
+   INNER JOIN date ON transactions.order_date = date.date
+   WHERE date.year = 2020;
+   ```
+
+7. **Suma de ventas por moneda:** Calcula la suma total de ventas (`sales_amount`) en las monedas `INR` y `USD` para el año 2020.
+   ```sql
+   SELECT SUM(transactions.sales_amount)
+   FROM transactions
+   INNER JOIN date ON transactions.order_date = date.date
+   WHERE date.year = 2020 AND (transactions.currency = "INR" OR transactions.currency = "USD");
+   ```
+
+8. **Suma de ventas en un mes específico por moneda:** Calcula la suma total de ventas en enero de 2020 para las monedas `INR` y `USD`.
+   ```sql
+   SELECT SUM(transactions.sales_amount)
+   FROM transactions
+   INNER JOIN date ON transactions.order_date = date.date
+   WHERE date.year = 2020 AND date.month_name = "January"
+   AND (transactions.currency = "INR" OR transactions.currency = "USD");
+   ```
+
+9. **Suma de ventas por mercado específico:** Calcula la suma total de ventas en el mercado `Mark001` durante 2020.
+   ```sql
+   SELECT SUM(transactions.sales_amount)
+   FROM transactions
+   INNER JOIN date ON transactions.order_date = date.date
+   WHERE date.year = 2020 AND transactions.market_code = "Mark001";
+   ```
 
 ## Definición de las Variables
 - **Revenue**: Monto total de dinero generado por las ventas (ingresos brutos).
@@ -65,3 +122,6 @@ El análisis de ventas entre 2017 y 2020 revela oportunidades significativas par
 ## Mejoras Futuras
 - Agregar opciones de filtrado dinámico para analizar datos específicos por regiones o periodos.
 - Incorporar una sección de "Revisión de Calidad de Datos" para identificar entradas incompletas o anómalas.
+
+## Autor
+Este tablero fue creado como parte de un proyecto de portafolio que demuestra habilidades en visualización y análisis de datos con Power BI.
