@@ -80,6 +80,8 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
    WHERE date.year = 2020 AND transactions.market_code = "Mark001";
    ```
 
+## Dashboard en Power BI
+
 ## Definición de las Variables
 - **Revenue**: Monto total de dinero generado por las ventas (ingresos brutos).
 - **Sales Qty**: Cantidad total de unidades vendidas.
