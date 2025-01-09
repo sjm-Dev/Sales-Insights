@@ -1,4 +1,4 @@
-# Tablero de Ventas - README
+# Sales Insights
 
 ## Resumen
 Este proyecto es un análisis de ventas realizado en dos etapas principales:
@@ -122,6 +122,3 @@ El análisis de ventas entre 2017 y 2020 revela oportunidades significativas par
 ## Mejoras Futuras
 - Agregar opciones de filtrado dinámico para analizar datos específicos por regiones o periodos.
 - Incorporar una sección de "Revisión de Calidad de Datos" para identificar entradas incompletas o anómalas.
-
-## Autor
-Este tablero fue creado como parte de un proyecto de portafolio que demuestra habilidades en visualización y análisis de datos con Power BI.
