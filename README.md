@@ -109,6 +109,7 @@ El tablero de Power BI incluye visualizaciones interactivas que destacan los pri
 **Top 5 Clientes y Productos**
 
   ![Captura KPIs Generales, top 5 clientes y productos](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/1.png)
+  ![Captura KPIs Generales](https://github.com/tu_usuario/tu_repositorio/assets/kpis_generales.png)
 
 Para ver todas las capturas y el archivo Power BI, consulta el repositorio del proyecto.
 
