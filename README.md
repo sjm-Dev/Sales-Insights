@@ -105,8 +105,8 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
 El tablero de Power BI incluye visualizaciones interactivas que destacan los principales KPIs y tendencias. A continuación, se presentan algunas capturas representativas:
 
 1. **KPIs Generales**:
-   ![Captura KPIs Generales](ruta/al/archivo/kpis_generales.png)
-
+   ![Captura KPIs Generales](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/1.png)
+	
 2. **Análisis por Mercado**:
    ![Captura Análisis por Mercado](ruta/al/archivo/analisis_mercado.png)
 
