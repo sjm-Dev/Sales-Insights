@@ -15,7 +15,7 @@ Implementar una solución basada en datos para:
 1. Crear un sistema de métricas clave (KPIs) que facilite el seguimiento del rendimiento de mercados y clientes.
 2. Diseñar visualizaciones interactivas en Power BI utilizando DAX para identificar patrones y proponer estrategias.
 
-## Herramientas Utilizadas
+## Herramientas utilizadas
 - **SQL**: Para la extracción, transformación y limpieza de datos.
 - **Power BI**: Para la creación de visualizaciones interactivas.
 
@@ -94,6 +94,7 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
 
 ## Explicación del Dashboard
 1. **KPIs**:
+Los KPIs del tablero fueron diseñados utilizando fórmulas DAX.
 
  ```
    Revenue = SUM('sales transactions'[norm_sales_amount])
@@ -105,6 +106,8 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
 2. **Visualizaciones Clave**:
    - Análisis de ingresos y cantidad de ventas desglosados por mercados.
    - Identificación de los principales clientes y productos.
+
+
 
 ## Capturas del Dashboard
 El tablero de Power BI incluye visualizaciones interactivas que destacan los principales KPIs y las tendencias de venta entre los años 2017 y 2020. A continuación, se presentan algunas capturas representativas de:
@@ -121,6 +124,4 @@ El análisis de ventas entre 2017 y 2020 revela oportunidades significativas par
 - Optimizar costos operativos y estrategias de precios en mercados principales.
 - Aprovechar la estacionalidad para maximizar ingresos en picos y estabilizar meses de baja demanda.
 
-## Mejoras Futuras
-- Agregar opciones de filtrado dinámico para analizar datos específicos por regiones o periodos.
-- Incorporar una sección de "Revisión de Calidad de Datos" para identificar entradas incompletas o anómalas.
+## Mejoras Futuras ????
