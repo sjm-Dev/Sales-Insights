@@ -143,5 +143,5 @@ El análisis de ventas entre 2017 y 2020 revela oportunidades significativas par
 - **Automatización del flujo de datos:** Implementar un flujo ETL para actualizar los datos en tiempo real.
 - **Análisis predictivo:** Usar Machine Learning para predecir ingresos futuros y tendencias del mercado.
 
-## Sobre mi
+## Sobre Mi
 Estoy dando mis primeros pasos en el mundo de la ciencia de datos y la analítica, aprendiendo herramientas como SQL, Power BI, R y Python. Este proyecto es parte de mi portafolio y busco que refleje mi interés en resolver problemas empresariales mediante el análisis de datos. Estoy motivado por aprender continuamente y en busca de oportunidades que me permitan desarrollar mis habilidades en proyectos reales.
