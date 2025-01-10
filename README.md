@@ -98,9 +98,9 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
  ```
    - Revenue: SUM('Sales transactions'[norm_sales_amount])
    ```
-
+ ```
    - Sales Qty: SUM('sales transactions'[sales_qty])
-
+   ```
 
 2. **Visualizaciones Clave**:
    - Análisis de ingresos y cantidad de ventas desglosados por mercados.
