@@ -95,7 +95,7 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
 ## Explicación del Dashboard
 1. **KPIs**:
 
- ```sql
+ ```
    - Revenue: SUM('Sales transactions'[norm_sales_amount])
    ```
 
