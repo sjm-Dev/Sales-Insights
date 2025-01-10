@@ -80,7 +80,7 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
    WHERE date.year = 2020 AND transactions.market_code = "Mark001";
    ```
 
-## Dashboard en Power BI
+# Dashboard en Power BI
 
 ## Definición de las Variables
 - **Revenue**: Monto total de dinero generado por las ventas (ingresos brutos).
@@ -108,7 +108,7 @@ El tablero de Power BI incluye visualizaciones interactivas que destacan los pri
 
   ![Captura KPIs General](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/1.png)
 
-Para ver todas las capturas y el archivo Power BI, consulta el repositorio del proyecto.
+Para ver todas las capturas y el archivo Power BI, consultar el repositorio del proyecto.
 
 ## Conclusiones
 El análisis de ventas entre 2017 y 2020 revela oportunidades significativas para mejorar la rentabilidad y estabilidad del negocio. Las principales recomendaciones incluyen:
