@@ -102,14 +102,13 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
    - Identificación de los principales clientes y productos.
 
 ## Capturas del Dashboard
-El tablero de Power BI incluye visualizaciones interactivas que destacan los principales KPIs y las tendencias entre los años 2017 y 2020. A continuación, se presentan algunas capturas representativas de:
+El tablero de Power BI incluye visualizaciones interactivas que destacan los principales KPIs y las tendencias de venta entre los años 2017 y 2020. A continuación, se presentan algunas capturas representativas de:
 
 **KPIs Generales**
 **Análisis por Mercado**
 **Top 5 Clientes y Productos**
-   ![Captura KPIs Generales](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/1.png)
 
-   ![Captura Análisis por Mercado](ruta/al/archivo/analisis_mercado.png)
+  ![Captura KPIs Generales, top 5 clientes y productos](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/1.png)
 
 Para ver todas las capturas y el archivo Power BI, consulta el repositorio del proyecto.
 
