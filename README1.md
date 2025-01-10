@@ -91,6 +91,22 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
    ```
    - **Propósito:** Evaluar el rendimiento de un mercado específico.
 
+10. **Manejo de caracteres invisibles en la columna `currency`:** Calcula el total de ingresos en 2020, teniendo en cuenta posibles caracteres de retorno de carro (`\r`) o espacios adicionales en los datos.
+   ```sql
+   SELECT SUM(transactions.sales_amount)
+   FROM transactions
+   INNER JOIN date ON transactions.order_date = date.date
+   WHERE date.year = 2020 AND transactions.currency = "INR\r" OR transactions.currency = "USD\r";
+   ```
+   - **Problema detectado:** La columna `currency` contiene caracteres invisibles como `\r`, lo que puede generar problemas al realizar comparaciones directas.
+   - **Solución:** Limpiar los datos utilizando la funcion `TRIM` para eliminar caracteres innecesarios:
+     ```sql
+     SELECT SUM(transactions.sales_amount)
+     FROM transactions
+     INNER JOIN date ON transactions.order_date = date.date
+     WHERE date.year = 2020 AND TRIM(transactions.currency) IN ("INR", "USD");
+     ```
+
 # Dashboard en Power BI
 
 ## Definición de las Variables
@@ -117,7 +133,14 @@ Los KPIs del tablero fueron diseñados utilizando fórmulas DAX, que permiten c�
      ```
      Indica el número total de unidades vendidas.
 
-2. **Visualizaciones Clave:**
+2. **Fórmula para crear la columna `norm_amount`:**
+   ```dax
+   = Table.AddColumn(#"Filtered Rows", "norm_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then [sales_amount]*75 else [sales_amount], type any)
+   ```
+   - **Propósito:** Normalizar los valores de las ventas, convirtiendo los montos en USD a su equivalente en INR (considerando una tasa de conversión de 1 USD = 75 INR).
+   - **Problema detectado:** El uso de `USD#(cr)` indica que los datos pueden contener caracteres invisibles. Es necesario limpiar los datos antes de aplicar la fórmula.
+
+3. **Visualizaciones Clave:**
    - **Revenue by Markets:** Desglose de ingresos por cada mercado.
    - **Sales Qty by Markets:** Desglose de cantidad de ventas por mercado.
    - **Top 5 Customers y Top 5 Products:** Identificación de los clientes y productos más importantes para priorizar estrategias comerciales.
@@ -130,6 +153,12 @@ El tablero de Power BI incluye visualizaciones interactivas que destacan los pri
   ![Captura KPIs General](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/2017%20to%202020%20sales.png)
 
 Para ver todas las capturas y el archivo Power BI, consultar el repositorio del proyecto.
+
+## Cómo replicar este proyecto
+1. Clona este repositorio.
+2. Descarga el archivo `.pbix` para ver el tablero en Power BI.
+3. Carga los datos en SQL usando las consultas proporcionadas.
+4. Ajusta las visualizaciones en Power BI según tus necesidades.
 
 ## Conclusiones
 El análisis de ventas entre 2017 y 2020 revela oportunidades significativas para mejorar la rentabilidad y estabilidad del negocio. Las principales recomendaciones incluyen:
