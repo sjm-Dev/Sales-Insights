@@ -127,7 +127,7 @@ El tablero de Power BI incluye visualizaciones interactivas que destacan los pri
 
 **KPIs Generales, Análisis por Mercado y Top 5 de Clientes y Productos**
 
-  ![Captura KPIs General](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/1.png)
+  ![Captura KPIs General](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/2017%20to%202020%20sales.png)
 
 Para ver todas las capturas y el archivo Power BI, consultar el repositorio del proyecto.
 
