@@ -106,7 +106,7 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
      INNER JOIN date ON transactions.order_date = date.date
      WHERE date.year = 2020 AND TRIM(transactions.currency) IN ("INR", "USD");
      ```
-11. **Creación de una nueva columna:** Añade una columna llamada `norm_amount` que normaliza los valores de ventas (`sales_amount`) convirtiendo los montos en USD a INR (utilizando una tasa de conversión de 1 USD = 75 INR). Si la moneda no es USD, se conserva el valor original. Esta transformación también maneja datos con caracteres invisibles como `USD#(cr)`.
+11. **Creación de una nueva columna:** Añade una columna llamada `norm_sales_amount` que normaliza los valores de ventas (`sales_amount`) convirtiendo los montos en USD a INR (utilizando una tasa de conversión de 1 USD = 75 INR). Si la moneda no es USD, se conserva el valor original. Esta transformación también maneja datos con caracteres invisibles como `USD#(cr)`.
      ```sql
      = Table.AddColumn(#"Filtered Rows", "norm_sales_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then[sales_amount]*75 else [sales_amount])
       ```
