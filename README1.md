@@ -137,14 +137,7 @@ Los KPIs del tablero fueron diseñados utilizando fórmulas DAX, que permiten c�
      ```
      Indica el número total de unidades vendidas.
 
-2. **Fórmula para crear la columna `norm_amount`:**
-   ```dax
-   = Table.AddColumn(#"Filtered Rows", "norm_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then [sales_amount]*75 else [sales_amount], type any)
-   ```
-   - **Propósito:** Normalizar los valores de las ventas, convirtiendo los montos en USD a su equivalente en INR (considerando una tasa de conversión de 1 USD = 75 INR).
-   - **Problema detectado:** El uso de `USD#(cr)` indica que los datos pueden contener caracteres invisibles. Es necesario limpiar los datos antes de aplicar la fórmula.
-
-3. **Visualizaciones Clave:**
+2. **Visualizaciones Clave:**
    - **Revenue by Markets:** Desglose de ingresos por cada mercado.
    - **Sales Qty by Markets:** Desglose de cantidad de ventas por mercado.
    - **Top 5 Customers y Top 5 Products:** Identificación de los clientes y productos más importantes para priorizar estrategias comerciales.
