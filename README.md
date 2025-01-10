@@ -19,7 +19,7 @@ Implementar una solución basada en datos para:
 - **SQL**: Para la extracción, transformación y limpieza de datos.
 - **Power BI**: Para la creación de visualizaciones interactivas.
 
-## Consultas SQL
+# Consultas SQL
 A continuación, se detallan las consultas SQL utilizadas para extraer, transformar y analizar los datos:
 
 1. **Selección básica:** Retorna todas las filas y columnas de la tabla `customers`.
@@ -94,8 +94,13 @@ A continuación, se detallan las consultas SQL utilizadas para extraer, transfor
 
 ## Explicación del Dashboard
 1. **KPIs**:
+
+ ```sql
    - Revenue: SUM('Sales transactions'[norm_sales_amount])
+   ```
+
    - Sales Qty: SUM('sales transactions'[sales_qty])
+
 
 2. **Visualizaciones Clave**:
    - Análisis de ingresos y cantidad de ventas desglosados por mercados.
