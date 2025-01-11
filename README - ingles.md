@@ -147,7 +147,7 @@ The KPIs on the dashboard were designed using DAX formulas, enabling dynamic and
      ```
      Muestra el ingreso total generado por las ventas.
 
- - **Sales Qty (Sales Quantity):**
+   - **Sales Qty (Sales Quantity):**
      ```dax
      Sales Qty = SUM('sales transactions'[sales_qty])
      ```
@@ -166,25 +166,25 @@ The Power BI dashboard includes interactive visualizations that highlight the ma
 
   ![General KPIs Screenshot](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/2017%20to%202020%20sales.png)
 
-Para ver todas las capturas y el archivo Power BI, consultar el repositorio del proyecto.
+To view all the screenshots and the Power BI file, check the project repository.
 
-## Cómo replicar este proyecto
-1. Clona este repositorio.
-2. Descarga el archivo `.pbix` para ver el tablero en Power BI.
-3. Carga los datos en SQL usando las consultas proporcionadas.
-4. Ajusta las visualizaciones en Power BI según tus necesidades.
+## How to Replicate This Project
+1. Clone this repository.
+2. Download the `.pbix` file to view the dashboard in Power BI.
+3. Load the data into SQL using the provided queries.
+4. Adjust the visualizations in Power BI according to your needs.
 
-## Conclusiones
-El análisis de ventas entre 2017 y 2020 revela oportunidades significativas para mejorar la rentabilidad y estabilidad del negocio. Las principales recomendaciones incluyen:
-- Priorizar inversiones en mercados secundarios rentables como Bhubaneswar y Hyderabad.
-- Optimizar costos operativos y estrategias de precios en mercados principales.
-- Aprovechar la estacionalidad para maximizar ingresos en picos y estabilizar meses de baja demanda.
+## Conclusions
+The sales analysis between 2017 and 2020 reveals significant opportunities to improve profitability and business stability. The main recommendations include:
+- Prioritizing investments in profitable secondary markets such as Bhubaneswar and Hyderabad.
+- Optimizing operational costs and pricing strategies in primary markets.
+- Leveraging seasonality to maximize revenue during peaks and stabilize low-demand months.
 
-## Mejoras Futuras
-- **Agregar métricas adicionales:** Como márgenes de ganancia y costos operativos.
-- **Incluir más filtros:** Por ejemplo, rangos de precios o regiones específicas.
-- **Automatización del flujo de datos:** Implementar un flujo ETL para actualizar los datos en tiempo real.
-- **Análisis predictivo:** Usar Machine Learning para predecir ingresos futuros y tendencias del mercado.
+## Future Improvements
+- **Add additional metrics:** Such as profit margins and operational costs.
+- **Include more filters:** For example, price ranges or specific regions.
+- **Automate the data flow:** Implement an ETL process to update data in real-time.
+- **Predictive analysis:** Use Machine Learning to forecast future revenue and market trends.
 
-## Sobre Mi
-Estoy dando mis primeros pasos en el mundo de la ciencia de datos y la analítica, aprendiendo herramientas como SQL, Power BI, R y Python. Este proyecto es parte de mi portafolio y busco que refleje mi interés en resolver problemas empresariales mediante el análisis de datos. Estoy motivado por aprender continuamente y en busca de oportunidades que me permitan desarrollar mis habilidades en proyectos reales.
+## About Me
+I am taking my first steps into the world of data science and analytics, learning tools like SQL, Power BI, R, and Python. This project is part of my portfolio, and I aim for it to reflect my interest in solving business problems through data analysis. I am motivated by continuous learning and seeking opportunities to develop my skills in real-world projects.
