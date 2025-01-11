@@ -1,33 +1,37 @@
 # Sales Insights
 
-## Resumen
-Este proyecto es un análisis de ventas realizado en dos etapas principales:
-1. **Consultas SQL**: Extracción y preparación de los datos necesarios para el análisis.
-2. **Dashboard en Power BI**: Visualización interactiva de los resultados para facilitar la toma de decisiones.
+## Summary
+This project is a sales analysis conducted in two main stages:
 
-El análisis se centra en los datos de ventas de AtliQ Hardware, una empresa ficticia de hardware informático con sede en India. AtliQ Hardware suministra hardware y periféricos de computadoras a numerosos clientes en toda India, y su oficina central se encuentra en Delhi, India.
+SQL Queries: Extraction and preparation of the data required for analysis.
+Power BI Dashboard: Interactive visualization of the results to support decision-making.
 
-## Problema
-El director de ventas enfrenta dificultades para rastrear el rendimiento del mercado debido a la falta de reportes respaldados por datos concretos. Esto genera una visibilidad limitada sobre los factores clave que afectan las ventas.
+The analysis focuses on sales data from AtliQ Hardware, a fictional computer hardware company based in India. AtliQ Hardware supplies hardware and computer peripherals to numerous clients across India, with its headquarters located in Delhi, India.
 
-## Objetivo
-Implementar una solución basada en datos para:
-1. Crear un sistema de métricas clave (KPIs) que facilite el seguimiento del rendimiento de mercados y clientes.
-2. Diseñar visualizaciones interactivas en Power BI utilizando DAX para identificar patrones y proponer estrategias.
+## Problem
+The sales director is struggling to track market performance due to a lack of reports supported by concrete data. This results in limited visibility into the key factors affecting sales.
 
-## Herramientas utilizadas
-- **SQL**: Para la extracción, transformación y limpieza de datos.
-- **Power BI**: Para la creación de visualizaciones interactivas.
+## Objective
+Implement a data-driven solution to:
+
+Create a system of key performance indicators (KPIs) to facilitate tracking market and customer performance.
+Design interactive visualizations in Power BI using DAX to identify patterns and propose strategies.
+
+## Tools Used
+SQL: For data extraction, transformation, and cleaning.
+Power BI: For creating interactive visualizations.
+
 
 # Consultas SQL
-A continuación, se detallan las consultas SQL utilizadas para extraer, transformar y analizar los datos:
+Below are the SQL queries used to extract, transform, and analyze the data:
 
-1. **Selección básica:** Retorna todas las filas y columnas de la tabla `customers`.
+1. **Basic Selection:** Returns all rows and columns from the customers table.
    ```sql
    SELECT * FROM customers;
    ```
-   - **Propósito:** Obtener una vista general de la tabla `customers`.
-   - **Resultado esperado:** Todas las filas con columnas como `customer_id`, `customer_name`, y `contact`.
+   - **Purpose:** To get an overview of the `customers` table.
+   - **Expected Outcome:** All rows with columns such as `customer_id`, `customer_name`, and 'contact`.
+
 
 2. **Conteo total de clientes:** Cuenta el número total de registros en la tabla `customers`.
    ```sql
