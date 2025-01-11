@@ -186,4 +186,4 @@ The sales analysis between 2017 and 2020 reveals significant opportunities to im
 - **Predictive analysis:** Use Machine Learning to forecast future revenue and market trends.
 
 ## About Me
-I am taking my first steps into the world of data science and analytics, learning tools like SQL, Power BI, R, and Python. This project is part of my portfolio, and I aim for it to reflect my interest in solving business problems through data analysis. I am motivated by continuous learning and seeking opportunities to develop my skills in real-world projects.
+I am taking my first steps into the world of data science and analytics, learning tools like **SQL, Power BI, R, and Python**. This project is part of my portfolio, and I aim for it to reflect my interest in solving business problems through data analysis. I am motivated by continuous learning and seeking opportunities to develop my skills in real-world projects.
