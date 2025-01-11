@@ -14,17 +14,15 @@ The sales director is struggling to track market performance due to a lack of re
 ## Objective
 Implement a data-driven solution to:
 
-Create a system of key performance indicators (KPIs) to facilitate tracking market and customer performance.
-Design interactive visualizations in Power BI using DAX to identify patterns and propose strategies.
+Create a system of **KPIs** to facilitate tracking market and customer performance.
+Design interactive visualizations in Power BI using **DAX** to identify patterns and propose strategies.
 
 ## Tools Used
 **SQL:** For data extraction, transformation, and cleaning.  
 **Power BI:** For creating interactive visualizations.
 
-
-# Consultas SQL
+# SQL Queries
 Below are the SQL queries used to extract, transform, and analyze the data:
-
 
 1. **Basic Selection:** Returns all rows and columns from the customers table.
    ```sql
@@ -145,7 +143,8 @@ The KPIs on the dashboard were designed using DAX formulas, enabling dynamic and
      ```dax
      Revenue = SUM('sales transactions'[norm_sales_amount])
      ```
-     Muestra el ingreso total generado por las ventas.
+     Shows the total revenue generated from sales.
+
 
    - **Sales Qty (Sales Quantity):**
      ```dax
