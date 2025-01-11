@@ -3,8 +3,8 @@
 ## Summary
 This project is a sales analysis conducted in two main stages:
 
-SQL Queries: Extraction and preparation of the data required for analysis.
-Power BI Dashboard: Interactive visualization of the results to support decision-making.
+**SQL Queries:** Extraction and preparation of the data required for analysis.  
+**Power BI Dashboard:** Interactive visualization of the results to support decision-making.
 
 The analysis focuses on sales data from AtliQ Hardware, a fictional computer hardware company based in India. AtliQ Hardware supplies hardware and computer peripherals to numerous clients across India, with its headquarters located in Delhi, India.
 
