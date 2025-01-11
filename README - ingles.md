@@ -18,8 +18,8 @@ Create a system of key performance indicators (KPIs) to facilitate tracking mark
 Design interactive visualizations in Power BI using DAX to identify patterns and propose strategies.
 
 ## Tools Used
-SQL: For data extraction, transformation, and cleaning.
-Power BI: For creating interactive visualizations.
+**SQL:** For data extraction, transformation, and cleaning.
+**Power BI:** For creating interactive visualizations.
 
 
 # Consultas SQL
