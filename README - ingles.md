@@ -25,6 +25,7 @@ Design interactive visualizations in Power BI using DAX to identify patterns and
 # Consultas SQL
 Below are the SQL queries used to extract, transform, and analyze the data:
 
+
 1. **Basic Selection:** Returns all rows and columns from the customers table.
    ```sql
    SELECT * FROM customers;
@@ -62,11 +63,6 @@ Below are the SQL queries used to extract, transform, and analyze the data:
    - **Purpose:** To identify transactions made in US dollars.
 
 
-
-
-
-
-
 6. **Combine Transaction and Date Data:** Performs an INNER JOIN between the `transactions` and `date` tables to include only transactions from the year 2020.  
    ```sql
    SELECT transactions.*, date.*
@@ -75,8 +71,6 @@ Below are the SQL queries used to extract, transform, and analyze the data:
    WHERE date.year = 2020;
    ```
     - **Purpose:** To analyze transactions made during 2020.
-
-
 
 
 7. **Sum of Sales by Currency:** Calculates the total sum of sales (`sales_amount`) in `INR` and `USD` currencies for the year 2020.  
@@ -89,8 +83,6 @@ Below are the SQL queries used to extract, transform, and analyze the data:
   - **Purpose:** To determine the total revenue broken down by `currency`.
 
 
-
-
 8. **Sum of Sales in a Specific Month by Currency:** Calculates the total sum of sales in January 2020 for the currencies `INR` and `USD`.  
    ```sql
    SELECT SUM(transactions.sales_amount)
@@ -100,7 +92,6 @@ Below are the SQL queries used to extract, transform, and analyze the data:
    AND (transactions.currency = "INR" OR transactions.currency = "USD");
    ```
    - **Purpose:** To analyze sales made in January 2020.
-
 
 
 9. **Sum of Sales by Specific Market:** Calculates the total sum of sales in the `Mark001` market during 2020.  
@@ -134,43 +125,46 @@ Below are the SQL queries used to extract, transform, and analyze the data:
      = Table.AddColumn(#"Filtered Rows", "norm_sales_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then[sales_amount]*75 else [sales_amount])
       ```
 
-# Dashboard en Power BI
+# Dashboard in Power BI
 
-## Definición de las Variables
-- **Revenue**: Monto total de dinero generado por las ventas (ingresos brutos).
-- **Sales Qty**: Cantidad total de unidades vendidas.
-- **Markets**: Regiones donde se distribuyen los productos.
-- **Revenue by Markets**: Desglose de ingresos por cada mercado.
-- **Sales Qty by Markets**: Desglose de unidades vendidas por cada mercado.
-- **Top 5 Customers**: Los cinco clientes que generan mayor ingreso.
-- **Top 5 Products**: Los cinco productos que generan mayor ingreso.
-- **Time Period**: Rango de tiempo analizado (e.g., año, trimestre, meses).
+## Definition of Variables
+- **Revenue**: Total amount of money generated from sales (gross income).
+- **Sales Qty**: Total quantity of units sold.
+- **Markets**: Regions where products are distributed.
+- **Revenue by Markets**: Breakdown of revenue by each market.
+- **Sales Qty by Markets**: Breakdown of units sold by each market.
+- **Top 5 Customers**: The five customers generating the highest revenue.
+- **Top 5 Products**: The five products generating the highest revenue.
+- **Time Period**: Time range analyzed (e.g., year, quarter, months).
 
-## Explicación del Dashboard
+## Dashboard Explanation
 1. **KPIs:**
-Los KPIs del tablero fueron diseñados utilizando fórmulas DAX, que permiten cálculos dinámicos y adaptables. A continuación, se presentan los principales:
-   - **Revenue (Ingresos Totales):**
+The KPIs on the dashboard were designed using DAX formulas, enabling dynamic and adaptable calculations. Below are the main ones:
+
+   - **Revenue (Total Income):**
      ```dax
      Revenue = SUM('sales transactions'[norm_sales_amount])
      ```
      Muestra el ingreso total generado por las ventas.
-   - **Sales Qty (Cantidad de Ventas):**
+
+ - **Sales Qty (Sales Quantity):**
      ```dax
      Sales Qty = SUM('sales transactions'[sales_qty])
      ```
-     Indica el número total de unidades vendidas.
+     Indicates the total number of units sold.
 
-2. **Visualizaciones Clave:**
-   - **Revenue by Markets:** Desglose de ingresos por cada mercado.
-   - **Sales Qty by Markets:** Desglose de cantidad de ventas por mercado.
-   - **Top 5 Customers y Top 5 Products:** Identificación de los clientes y productos más importantes para priorizar estrategias comerciales.
 
-## Capturas del Dashboard
-El tablero de Power BI incluye visualizaciones interactivas que destacan los principales KPIs y las tendencias de venta entre los años 2017 y 2020. A continuación, se presentan algunas capturas representativas de:
+2. **Key Visualizations:**
+   - **Revenue by Markets:** Breakdown of revenue by each market.
+   - **Sales Qty by Markets:** Breakdown of sales quantity by each market.
+   - **Top 5 Customers and Top 5 Products:** Identification of the most important customers and products to prioritize business strategies.
 
-**KPIs Generales, Análisis por Mercado y Top 5 de Clientes y Productos**
+## Dashboard Screenshots
+The Power BI dashboard includes interactive visualizations that highlight the main KPIs and sales trends between 2017 and 2020. Below are some representative screenshots of:
 
-  ![Captura KPIs General](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/2017%20to%202020%20sales.png)
+**General KPIs, Market Analysis, and Top 5 Customers and Products**
+
+  ![General KPIs Screenshot](https://github.com/sjm-Dev/Sales-Insights/blob/main/Power%20BI%20images/2017%20to%202020%20sales.png)
 
 Para ver todas las capturas y el archivo Power BI, consultar el repositorio del proyecto.
 
