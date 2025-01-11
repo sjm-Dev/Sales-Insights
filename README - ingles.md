@@ -30,53 +30,68 @@ Below are the SQL queries used to extract, transform, and analyze the data:
    SELECT * FROM customers;
    ```
    - **Purpose:** To get an overview of the `customers` table.
-   - **Expected Outcome:** All rows with columns such as `customer_id`, `customer_name`, and 'contact`.
+   - **Expected Outcome:** All rows with columns such as `customer_id`, `customer_name`, and `contact`.
 
 
-2. **Conteo total de clientes:** Cuenta el número total de registros en la tabla `customers`.
+2. **Total Customer Count:** Counts the total number of records in the `customers` table.  
    ```sql
    SELECT COUNT(*) FROM customers;
    ```
-   - **Propósito:** Verificar la cantidad total de clientes registrados.
-   - **Resultado esperado:** Un único valor numérico, como `3500 clientes`.
+   - **Purpose:** To check the total number of registered customers.  
+   - **Expected Outcome:** A single numeric value, such as `3500 customers`. 
 
-3. **Filtrar transacciones por mercado:** Selecciona todas las filas de la tabla `transactions` donde el código de mercado sea `Mark001`.
+
+3. **Filter Transactions by Market:** Selects all rows from the `transactions` table where the market code is `Mark001`.  
    ```sql
    SELECT * FROM transactions WHERE market_code = 'Mark001';
    ```
-   - **Propósito:** Identificar transacciones específicas realizadas en el mercado `Mark001`.
+   - **Purpose:** To identify specific transactions made in the Mark001 market.
 
-4. **Valores únicos de productos en un mercado específico:** Obtiene los valores únicos de `product_code` en el mercado `Mark001`.
+
+4. **Unique Product Values in a Specific Market:** Retrieves the unique values of `product_code` in the `Mark001` market.  
    ```sql
    SELECT DISTINCT product_code FROM transactions WHERE market_code = 'Mark001';
    ```
-   - **Propósito:** Listar todos los productos vendidos en un mercado determinado sin duplicados.
+   - **Purpose:** To list all products sold in a specific market without duplicates.
 
-5. **Filtrar transacciones por moneda:** Retorna todas las filas de la tabla `transactions` donde la moneda sea `USD`.
+
+5. **Filter Transactions by Currency:** Returns all rows from the `transactions` table where the currency is `USD`.  
    ```sql
    SELECT * FROM transactions WHERE currency = "USD";
    ```
-   - **Propósito:** Identificar transacciones realizadas en dólares estadounidenses.
+   - **Purpose:** To identify transactions made in US dollars.
 
-6. **Combinar datos de transacciones y fechas:** Realiza un INNER JOIN entre las tablas `transactions` y `date` para incluir solo transacciones del año 2020.
+
+
+
+
+
+
+6. **Combine Transaction and Date Data:** Performs an INNER JOIN between the `transactions` and `date` tables to include only transactions from the year 2020.  
    ```sql
    SELECT transactions.*, date.*
    FROM transactions
    INNER JOIN date ON transactions.order_date = date.date
    WHERE date.year = 2020;
    ```
-   - **Propósito:** Analizar las transacciones realizadas durante 2020.
+    - **Purpose:** To analyze transactions made during 2020.
 
-7. **Suma de ventas por moneda:** Calcula la suma total de ventas (`sales_amount`) en las monedas `INR` y `USD` para el año 2020.
+
+
+
+7. **Sum of Sales by Currency:** Calculates the total sum of sales (`sales_amount`) in `INR` and `USD` currencies for the year 2020.  
    ```sql
    SELECT SUM(transactions.sales_amount)
    FROM transactions
    INNER JOIN date ON transactions.order_date = date.date
    WHERE date.year = 2020 AND (transactions.currency = "INR" OR transactions.currency = "USD");
    ```
-   - **Propósito:** Determinar el total de ingresos desglosado por moneda.
+  - **Purpose:** To determine the total revenue broken down by `currency`.
 
-8. **Suma de ventas en un mes específico por moneda:** Calcula la suma total de ventas en enero de 2020 para las monedas `INR` y `USD`.
+
+
+
+8. **Sum of Sales in a Specific Month by Currency:** Calculates the total sum of sales in January 2020 for the currencies `INR` and `USD`.  
    ```sql
    SELECT SUM(transactions.sales_amount)
    FROM transactions
@@ -84,33 +99,37 @@ Below are the SQL queries used to extract, transform, and analyze the data:
    WHERE date.year = 2020 AND date.month_name = "January"
    AND (transactions.currency = "INR" OR transactions.currency = "USD");
    ```
-   - **Propósito:** Analizar las ventas realizadas en enero de 2020.
+   - **Purpose:** To analyze sales made in January 2020.
 
-9. **Suma de ventas por mercado específico:** Calcula la suma total de ventas en el mercado `Mark001` durante 2020.
+
+
+9. **Sum of Sales by Specific Market:** Calculates the total sum of sales in the `Mark001` market during 2020.  
    ```sql
    SELECT SUM(transactions.sales_amount)
    FROM transactions
    INNER JOIN date ON transactions.order_date = date.date
    WHERE date.year = 2020 AND transactions.market_code = "Mark001";
    ```
-   - **Propósito:** Evaluar el rendimiento de un mercado específico.
+   - **Purpose:** To evaluate the performance of a specific market.
 
-10. **Manejo de caracteres invisibles en la columna `currency`:** Calcula el total de ingresos en 2020, teniendo en cuenta posibles caracteres de retorno de carro (`\r`) o espacios adicionales en los datos.
+
+10. **Handling Invisible Characters in the `currency` Column:** Calculates the total revenue in 2020, accounting for potential carriage return (`\r`) or extra spaces in the data.  
    ```sql
    SELECT SUM(transactions.sales_amount)
    FROM transactions
    INNER JOIN date ON transactions.order_date = date.date
    WHERE date.year = 2020 AND transactions.currency = "INR\r" OR transactions.currency = "USD\r";
    ```
-   - **Problema detectado:** La columna `currency` contiene caracteres invisibles como `\r`, lo que puede generar problemas al realizar comparaciones directas.
-   - **Solución:** Limpiar los datos utilizando la funcion `TRIM` para eliminar caracteres innecesarios:
+   - **Detected Problem:** The `currency` column contains invisible characters like `\r`, which can cause issues when performing direct comparisons.  
+   - **Solution:** Clean the data using the `TRIM` function to remove unnecessary characters:  
      ```sql
      SELECT SUM(transactions.sales_amount)
      FROM transactions
      INNER JOIN date ON transactions.order_date = date.date
      WHERE date.year = 2020 AND TRIM(transactions.currency) IN ("INR", "USD");
      ```
-11. **Creación de una nueva columna:** Añade una columna llamada `norm_sales_amount` que normaliza los valores de ventas (`sales_amount`) convirtiendo los montos en USD a INR (utilizando una tasa de conversión de 1 USD = 75 INR). Si la moneda no es USD, se conserva el valor original. Esta transformación también maneja datos con caracteres invisibles como `USD#(cr)`.
+
+11. **Create a New Column:** Adds a column named `norm_sales_amount` that normalizes sales amounts (`sales_amount`) by converting USD amounts to INR (using a conversion rate of 1 USD = 75 INR). If the currency is not USD, the original value is retained. This transformation also handles data with invisible characters such as `USD#(cr)`.  
      ```sql
      = Table.AddColumn(#"Filtered Rows", "norm_sales_amount", each if [currency] = "USD" or [currency] ="USD#(cr)" then[sales_amount]*75 else [sales_amount])
       ```
